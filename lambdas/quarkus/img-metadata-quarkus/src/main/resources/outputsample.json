@@ -1,0 +1,31 @@
+{
+    "PNG-IHDR": {
+        "TagCount": 7,
+        "Image Width": "1920",
+        "Image Height": "1080",
+        "Bits Per Sample": "8",
+        "Color Type": "True Color",
+        "Compression Type": "Deflate",
+        "Filter Method": "Adaptive",
+        "Interlace Method": "No Interlace"
+    },
+    "PNG-pHYs": {
+        "TagCount": 3,
+        "Pixels Per Unit X": "2835",
+        "Pixels Per Unit Y": "2835",
+        "Unit Specifier": "Metres"
+    },
+    "File Type": {
+        "TagCount": 4,
+        "Detected File Type Name": "PNG",
+        "Detected File Type Long Name": "Portable Network Graphics",
+        "Detected MIME Type": "image/png",
+        "Expected File Name Extension": "png"
+    },
+    "File": {
+        "TagCount": 3,
+        "File Name": "AmRG1.png",
+        "File Size": "2336061 bytes",
+        "File Modified Date": "Sun Sep 10 11:57:34 +00:00 2023"
+    }
+}

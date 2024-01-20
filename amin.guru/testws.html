@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<title>Amin</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Ameen, Amin, a quick profile of Amin ">
+<meta name="keywords" content="Ameen, Amin, rdx_bomb, java, AWS, Cloud Computing, solutions architect">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<script src="assets/js/traveldocpage.js"></script>
+<script src="assets/js/airutil.js"></script>
+<script src="assets/js/templateutil.js" ></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+<!--link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css" -->
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/mCustomScrollbar/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link href="assets/css/checkout.css" rel="stylesheet">
+</head>
+<body> 
+  <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <div class="container-fluid">   
+    <div class="form-group mb-2">
+        <form class="form-inline">              
+                      <div class="input-group-prepend" id="login-container-group"> 
+                      
+
+                        <div class="input-group" id="cont-field-pnrname">
+                          <span class="input-group-text" id="aiplaneicon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-airplane-fill" viewBox="0 0 16 16">
+                            <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Z"/>
+                            </svg>
+                          </span>
+                          <span class="input-group-text">PNR Number and Last Name</span>
+                          <input type="text" aria-label="PNR Number" class="form-control" id="pnrNumber">
+                          <input type="text" aria-label="Last name" class="form-control" id="lastName" placeholder="Fred Blogs">
+                          <button class="btn  btn-dark" type="button" onclick="retrievePNR()" id="btn-login">Confirm identity</button>
+                        </div>     
+                      </div><!--END login-container-group -->
+                
+          <div class="input-group mb-3" id="cont-lbl-pnrname" hidden>
+            <span class="input-group-text" id="aiplaneicon2">
+              <i class="bi bi-airplane" width="16" height="16" fill="currentColor" class="bi bi-airplane-fill"></i>
+            </span> &nbsp;&nbsp;
+                <h3>  <span class="badge rounded-pill text-bg-warning">PNRNUM ABC 1234</span> </h3> &nbsp;&nbsp;
+                <h3> <span class="badge rounded-pill text-bg-light">Fred Blogs</span></h3> &nbsp;&nbsp;
+                <button class="btn  btn-dark" type="button" onclick="signout()" id="btn-signout" hidden>Sign Out</button>
+          </div><!-- END cont-lbl-pnrname-->
+        </form>
+
+      </div>
+      <form role="connectstatus">
+        <div class="form-group mx-sm-5 mb-10" id="ws-cont-button">        
+
+          <button type="button" class="btn btn-success">
+            <i class="bi bi-ethernet"></i> 
+            <span id="connectStatus">Offline</span> 
+          </button>
+          
+        </div>
+      </form>
+    </div><!-- END COtainer fluid -->
+  </nav>
+
+  <div class="alert alert-warning" role="alert" id="alertsection">
+   All Flights <i class="bi bi-airplane" width="16" height="16" fill="currentColor" class="bi bi-airplane-fill"></i>  on Schedule 
+  </div>
+
+<!--WS Response display area -->
+  <div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#"> Manage Booking </a> 
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Seats  </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="#">Payment  </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="#">Checkin  </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="#">ALL  Notifications  </a>
+            </li>
+          </ul>
+    </div>
+    <div class="card-body">
+      <p class="card-text" id="notificationArea">With supporting text below as a natural lead-in to additional content.</p>
+
+      <!-- travl docs form -->
+
+<div class="card" id="cont-apis-info" hidden>
+  <div class="card-body">
+     
+    <!--card body content START -->
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Real time Comms Section</span>
+          <span class="badge bg-primary rounded-pill">3</span>
+        </h4>
+
+        <!-- toast start -->
+    
+        <div class="toast-container position-static">
+          <div id="liveToast" class="toast text-bg-primary"  role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+            <div class="toast-header">
+              <i class="bi bi-airplane-engines-fill"></i>
+              <strong class="me-auto"> &nbsp; Flight Update</strong>
+              <small class="text-body-secondary">just now</small>
+            <!--  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>  -->
+            </div>
+            <div class="toast-body">
+             Gate Change : from 7 to 9 -> Please proceed to gate No 9 before 9: 30 AM
+            </div>
+          </div>
+        
+          <div id="liveToast2" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+            <div class="toast-header">
+              <i class="bi bi-files"></i>
+              <strong class="me-auto"> &nbsp; Travel Documents</strong>
+              <small class="text-body-secondary">2 seconds ago</small>
+           <!--  <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>  -->
+            </div>
+            <div class="toast-body">
+              Stage 2 of 7 Compete
+             </br> Redress Control Number: 12334567
+            </br> Federal Government authorized travel
+            </div>
+          </div>
+        </div>
+        <script>
+
+        //  const toastElList = document.querySelectorAll('.toast')
+       //   const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, option))
+              const toastLiveExample = document.getElementById('liveToast');
+              const toastLive2 = document.getElementById('liveToast2');
+              const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+              const toastBootstrap2 = bootstrap.Toast.getOrCreateInstance(toastLive2);
+              toastBootstrap.show();
+              toastBootstrap2.show();
+        </script>
+        <!-- toast end -->
+
+
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" id="talk"  class="form-control" placeholder="talk">
+            <button type="button" class="btn btn-secondary" onclick="sendServerMsg()">Talk</button>
+          </div>
+        </form>
+      </div>
+      <!-- end reaaltime -->
+      
+      <!-- Start submit travel docs form -->
+      <div class="col-md-7 col-lg-8" id="dynamicContent">
+        <h4 class="mb-3">Submit Travel Documents</h4>
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">First name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+    
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+    
+            <div class="col-12">
+              <label for="username" class="form-label">Passport Number</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control" id="passportnumber" placeholder="passportnumber" required>
+              <div class="invalid-feedback">
+                  Your passport Number is required.
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-12">
+              <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Please enter a valid email address for communication updates.
+              </div>
+            </div>
+    
+            <div class="col-12">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <div class="invalid-feedback">
+                Please enter your residence address.
+              </div>
+            </div>
+    
+            <div class="col-12">
+              <label for="address2" class="form-label">Address 2 <span class="text-body-secondary">(Optional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            </div>
+    
+            <div class="col-md-5">
+              <label for="country" class="form-label">Citizenship Country</label>
+              <select class="form-select" id="country" required>
+                <option value="">Choose...</option>
+                <option>Ireland</option>
+                <option>Dubai</option>
+                <option>United Kingdom</option>
+                <option>United States</option>
+                <option>Canada</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+    
+            <div class="col-md-4">
+              <label for="state" class="form-label">State</label>
+              <select class="form-select" id="state" required>
+                <option value="">Choose...</option>
+                <option>Donegal</option>
+                <option>Dublin</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div>
+    
+            <div class="col-md-3">
+              <label for="zip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="postcode" placeholder="" required>
+              <div class="invalid-feedback">
+                Zip/post code required.
+              </div>
+            </div>
+          </div>
+    
+          <hr class="my-4">
+    
+          
+    
+   
+    
+          <button class="w-100 btn btn-primary btn-lg" type="button" onclick="submitTravelDocs()">Submit for Validation</button>
+        </form>
+      </div>
+       <!-- END submit travel docs form -->
+    </div>
+    <!--card body content END -->
+
+     <!--Stat seats -->
+     <div class="card">
+        <div class="card-body" id="checkincard">
+            <div class="container-fluid">
+                Please select seat as per your preference </br>
+            </div>
+         
+
+          <img src="assets/images/seatmap.gif" class="img-fluid" alt="Please select seat ">
+          <button class="w-100 btn btn-primary btn-lg" type="button" onclick="submitTravelDocs()">Proceed to payments</button>
+        </div>
+      </div>
+
+      <!-- end seats -->
+
+
+  </div> <!--card body ends-->
+</div><!-- card ends -->
+
+<!--ttravel docs form end -->
+
+    </div>
+  </div>
+  <!--WS Response display area -->
+
+  <div class="card" id="cont-test-buttons" hidden>
+    <div class="card-body">
+<!--test buttons -->
+<button type="button" class="btn btn-primary" onclick="callBooking('klhfgkdf')">Test Event 1</button>
+<button type="button" class="btn btn-secondary" onclick="callBoarding()">Test Event 2</button>
+<button type="button" class="btn btn-success" onclick="callGeneral()">Test Event 3</button>
+</div> <!--card body ends-->
+</div><!-- card ends cont-test-buttons-->
+
+
+
+
+
+</body>
+</html>

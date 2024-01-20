@@ -1,0 +1,97 @@
+{
+    "pnr":"DEF456"
+,
+    "passengers": [
+        {
+          "name": {
+            "firstName": "John",
+            "lastName": "Smith"
+          },
+          "contact": {
+            "phone": "+1 123-456-7890",
+            "email": "johnsmith@example.com"
+          },
+          "gender": "Male",
+          "dateOfBirth": "1985-07-15",
+          "nationality": "USA",
+          "passport": {
+            "number": "ABC123456",
+            "country": "USA",
+            "expirationDate": "2025-05-31"
+          },
+          "specialServiceRequests": [
+            "Wheelchair assistance",
+            "Vegetarian meal"
+          ]
+        },
+        {
+          "name": {
+            "firstName": "Jane",
+            "lastName": "Doe"
+          },
+          "contact": {
+            "phone": "+1 987-654-3210",
+            "email": "janedoe@example.com"
+          },
+          "gender": "Female",
+          "dateOfBirth": "1990-03-20",
+          "nationality": "Canada",
+          "passport": {
+            "number": "XYZ789012",
+            "country": "Canada",
+            "expirationDate": "2024-12-31"
+          },
+          "specialServiceRequests": [
+            "Child meal"
+          ]
+        }
+      ],
+    "journey": [
+      {
+        "flight": {
+          "airline": "ABC Airlines",
+          "flightNumber": "AB123",
+          "departureAirport": "JFK",
+          "departureDateTime": "2023-06-01T10:00:00",
+          "arrivalAirport": "LHR",
+          "arrivalDateTime": "2023-06-01T18:00:00",
+          "status": "Confirmed"
+        },
+        "transitDuration": "2 hours",
+        "transitAirport": "LHR"
+      },
+      {
+        "flight": {
+          "airline": "XYZ Airlines",
+          "flightNumber": "XY789",
+          "departureAirport": "LHR",
+          "departureDateTime": "2023-06-01T20:00:00",
+          "arrivalAirport": "CDG",
+          "arrivalDateTime": "2023-06-01T22:00:00",
+          "status": "Confirmed"
+        },
+        "transitDuration": "3 hours",
+        "transitAirport": "CDG"
+      },
+      {
+        "flight": {
+          "airline": "PQR Airlines",
+          "flightNumber": "PQ456",
+          "departureAirport": "CDG",
+          "departureDateTime": "2023-06-02T01:00:00",
+          "arrivalAirport": "SYD",
+          "arrivalDateTime": "2023-06-02T17:00:00",
+          "status": "Confirmed"
+        },
+        "transitDuration": "1 hour",
+        "transitAirport": "SYD"
+      }
+    ],
+    "booking": {
+      "bookingReference": "GHI789",
+      "seatClass": "Economy",
+      "ticketNumber": "9876543210",
+      "ticketStatus": "Issued"
+    }
+  }
+  

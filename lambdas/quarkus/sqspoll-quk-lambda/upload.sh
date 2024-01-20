@@ -1,0 +1,1 @@
+aws s3 cp ./target/function.zip s3://aminasif-code/lambda/sqspoll-quk-lambda.zip  

@@ -1,0 +1,41 @@
+{
+  "Comment": "Add Apis workflow",
+  "StartAt": "EvaluateAPIRequest",
+  "States": {
+    "EvaluateAPIRequest": {
+      "Comment": "evaluate request for channel surce data etc",
+      "Type": "Pass",
+      "Next": "ValidateTravelDocs"
+    },
+    "ValidateTravelDocs": {
+      "Comment": "evaluate request for channel surce data etc",
+      "Type": "Pass",
+      "Result":{
+        "airline" : "aerlingus",
+        "leg" : "Dublin"
+      },
+      "ResultPath": "$.metadata",
+      "Next": "SaveTravelDocs"
+    },
+    "SaveTravelDocs": {
+      "Comment": "SaveTravelDocs Request to SQS",
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sqs:sendMessage",
+      "Parameters": {
+        "QueueUrl": "https://sqs.eu-west-1.amazonaws.com/094312144437/SQS-TravelDocs",
+        "MessageBody.$": "$.apidocs",
+        "MessageAttributes": {
+          "Attrb1a": {
+            "DataType": "String",
+            "StringValue": "attribute1a"
+          },
+          "Attrb2": {
+            "DataType": "String",
+            "StringValue": "attribute2"
+          }
+        }
+      },
+      "End": true
+    }
+  }
+}

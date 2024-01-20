@@ -1,0 +1,69 @@
+{
+    "Comment": "AddSealToBlockChain",
+    "StartAt": "GeoFenceCheck",
+    "States": {
+        "GeoFenceCheck": {
+        "Comment": "Evaluate geofence checks src port , dest port etc.",
+        "Type": "Pass",
+        "Result":{
+          "airline" : "aerlingus",
+          "leg" : "Dublin"
+        },
+        "ResultPath": "$.metadata",
+        "Next": "ProcessImage-Parallel"
+      },
+      "ProcessImage-Parallel": {
+        "Comment": "Process image for Block Chain",
+        "Type": "Parallel",
+        "Next": "CommpressImage",
+        "Branches": [
+            {
+                "StartAt": "Save-Img-Metadata",
+                "States": {
+                  "Save-Img-Metadata": {
+                    "Type": "Wait",
+                     "Seconds": 1,
+                     "Next": "WSCommsState1"
+                  },
+                  "WSCommsState1": {
+                    "Type": "Task",
+                    "Resource":"arn:aws:lambda:eu-west-1:094312144437:function:wscomm-quk-lambda",
+                    "End": true
+                  }
+                }
+              },
+              {
+                "StartAt": "Read-Img-TextContent",
+                "States": {
+                  "Read-Img-TextContent": {
+                     "Type": "Task",
+                     "Parameters": {
+                        "Image": {
+                          "S3Object": {
+                            "Bucket.$": "$.bucket",
+                            "Name.$": "$.File.File Name"
+                          }
+                        }
+                      },
+                      "Resource": "arn:aws:states:::aws-sdk:rekognition:detectLabels",
+                     "Next": "WSCommsState2",
+                     "ResultPath": "$.TextInImage"
+                  },
+                  "WSCommsState2": {
+                    "Type": "Pass",
+                    "End": true
+                  }
+                }
+              }
+        ]
+      },
+      "CommpressImage": {
+        "Type": "Pass",
+        "Next": "MovetoProcessedBucket"
+      },
+      "MovetoProcessedBucket": {
+        "Type": "Pass",
+        "End": true
+      }
+    }
+  }

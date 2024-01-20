@@ -1,0 +1,58 @@
+{
+    "pnr": {
+      "pnr": "C1742I",
+      "booking": {
+        "bookingReference": "B4M8YYZ5",
+        "seatClass": "First Class",
+        "ticketNumber": "IEVA9S5T0K",
+        "ticketStatus": "Cancelled"
+      },
+      "journey": [
+        {
+          "airline": "Lufthansa",
+          "arrivalAirport": "LHR",
+          "arrivalDateTime": "10::May::2023 01::56::22",
+          "departureAirport": "LHR",
+          "departureDateTime": "9::May::2023 13::05::22",
+          "flightNumber": "FL1089",
+          "status": "Scheduled",
+          "transitDurationInMin": 397
+        }
+      ],
+      "passengers": [
+        {
+          "contact": {
+            "email": "3333@333.com",
+            "phone": "123456788"
+          },
+          "dateOfBirth": "22/06/76",
+          "gender": "male",
+          "name": {
+            "firstName": "33333",
+            "lastName": ""
+          },
+          "nationality": [
+            {
+              "country": "Ireland",
+              "expirationDate": "29-May-2027",
+              "passportNumber": "33333"
+            }
+          ],
+          "specialServiceRequests": [
+            "Child meal",
+            "Wheelchair assistance",
+            "Vegetarian meal"
+          ]
+        }
+      ]
+    },
+    "firstclassResult": {
+      "TravelPoint": "Upgrade to Business at Checkin"
+    },
+    "connectionId": "FqYSQdmqDoECEOw=",
+    "wscomms": {
+      "state": "EvaluateRequest",
+      "wsmsgcat": "flightupdate",
+      "wsmsg": "Flight delayed by 1 hour"
+    }
+  }

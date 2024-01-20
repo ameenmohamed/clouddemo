@@ -1,0 +1,61 @@
+{
+    "pnr": "PNR1",
+    "booking": {
+     "bookingReference": "BKR1234345",
+     "seatClass": "Business",
+     "tickitNumber": "tkt123456",
+     "tickitStatus": "Issued"
+    },
+    "journey": [
+     {
+      "flight": {
+       "airline": "Emirates",
+       "arrivalAirport": "LHR",
+       "arrivalDateTime": "2023-06-01T18:00:00",
+       "departureAirport": "JFK",
+       "departuredateTime": "2023-06-01T10:00:00",
+       "flightNumber": "EI1234",
+       "status": "Confirmed",
+       "transitDurationinMin": "120"
+      }
+     },
+     {
+      "flight": {
+       "airline": "Fly Dubai",
+       "arrivalAirport": "DUB",
+       "arrivalDateTime": "2023-06-01T18:00:00",
+       "departureAirport": "LHR",
+       "departuredateTime": "2023-06-01T10:00:00",
+       "flightNumber": "FD1234",
+       "status": "Confirmed",
+       "transitDurationinMin": "540"
+      }
+     }
+    ],
+    "passengers": [
+     {
+      "contact": {
+       "email": "amin@amin.guru",
+       "phone": "123456788"
+      },
+      "dateOfBirth": "22/06/76",
+      "gender": "male",
+      "name": {
+       "firstName": "Amin",
+       "lastName": "Asif"
+      },
+      "nationality": [
+       {
+        "country": "Ireland",
+        "expirationDate": "2025-05-31",
+        "passportNumber": "ABC123456"
+       }
+      ],
+      "specialServiceRequests": [
+       "Wheelchair assistance",
+       "Vegetarian meal",
+       "Diabeatic Meal"
+      ]
+     }
+    ]
+   }

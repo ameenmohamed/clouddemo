@@ -1,0 +1,50 @@
+{
+    "pnr": {
+      "pnr": "LNWVNI",
+      "booking": {
+        "bookingReference": "0049JDPZ",
+        "seatClass": "Economy",
+        "ticketNumber": "L6FNU818WN",
+        "ticketStatus": "Issued"
+      },
+      "journey": [
+        {
+          "airline": "Emirates",
+          "arrivalAirport": "CDG",
+          "arrivalDateTime": "10::May::2023 13::19::52",
+          "departureAirport": "CDG",
+          "departureDateTime": "20::May::2023 19::57::52",
+          "flightNumber": "FL9634",
+          "status": "On Time",
+          "transitDurationInMin": 638
+        }
+      ],
+      "passengers": [
+        {
+          "contact": {
+            "email": "fifi@gmail.com",
+            "phone": "123456788"
+          },
+          "dateOfBirth": "22/06/76",
+          "gender": "male",
+          "name": {
+            "firstName": "FIFI",
+            "lastName": ""
+          },
+          "nationality": [
+            {
+              "country": "Ireland",
+              "expirationDate": "28-May-2024",
+              "passportNumber": "MIFI"
+            }
+          ],
+          "specialServiceRequests": [
+            "Child meal",
+            "Lactose-free meal",
+            "Extra legroom seat"
+          ]
+        }
+      ]
+    },
+    "connectionId": "Fp7EFcqhjoECFVg="
+  }

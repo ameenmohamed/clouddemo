@@ -1,0 +1,124 @@
+{
+  "Comment": "A Hello World example demonstrating various state types of the Amazon States Language",
+  "StartAt": "EvaluateRequest",
+  "States": {
+    "EvaluateRequest": {
+      "Comment": "A Pass state passes its input to its output, without performing work. Pass states are useful when constructing and debugging state machines.",
+      "Type": "Pass",
+      "Next": "CheckSeatClass"
+    },
+    "CheckSeatClass": {
+      "Comment": "A Choice state adds branching logic to a state machine. Choice rules can implement 16 different comparison operators, and can be combined using And, Or, and Not",
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.pnr.booking.seatClass",
+          "StringEquals": "Economy",
+          "Next": "EconomyState"
+        },
+        {
+          "Variable": "$.pnr.booking.seatClass",
+          "StringEquals": "Business",
+          "Next": "BusinessState"
+        },
+        {
+          "Variable": "$.pnr.booking.seatClass",
+          "StringEquals": "First Class",
+          "Next": "FirstClassState"
+        }
+      ],
+      "Default": "EconomyState"
+    },
+    "EconomyState": {
+      "Type": "Pass",
+      "Result": {
+        "BaggaeAllowance": "20kg per passanger"
+      },
+      "ResultPath": "$.economyResult",
+      "Next": "Wait 3 sec"
+    },
+    "BusinessState": {
+      "Type": "Pass",
+      "Result": {
+        "TravelPoint": "1000 Travel points"
+      },
+      "ResultPath": "$.businessResult",
+      "Next": "WSCommsState"
+    },
+    "FirstClassState": {
+      "Type": "Pass",
+       "Result": {
+        "TravelPoint": "Upgrade to Business at Checkin"
+      },
+      "ResultPath": "$.firstclassResult",
+      "Next": "WSCommsState"
+    },
+    "Wait 3 sec": {
+      "Comment": "A Wait state delays the state machine from continuing for a specified time.",
+      "Type": "Wait",
+      "Seconds": 3,
+      "Next": "WSCommsState"
+    },
+    "WSCommsState": {
+      "Type": "Task",
+      "Resource":"arn:aws:lambda:eu-west-1:094312144437:function:wscomm-quk-lambda",
+      "Next": "Parallel State"
+    },
+    "Parallel State": {
+      "Comment": "A Parallel state can be used to create parallel branches of execution in your state machine.",
+      "Type": "Parallel",
+      "Next": "CommsChannel",
+      "Branches": [
+        {
+          "StartAt": "Customs and Border Protection",
+          "States": {
+            "Customs and Border Protection": {
+              "Type": "Wait",
+               "Seconds": 1,
+               "Next": "WSCommsState1"
+            },
+            "WSCommsState1": {
+              "Type": "Task",
+              "Resource":"arn:aws:lambda:eu-west-1:094312144437:function:wscomm-quk-lambda",
+              "End": true
+            }
+          }
+        },
+        {
+          "StartAt": "Transportation Security Admin",
+          "States": {
+            "Transportation Security Admin": {
+               "Type": "Wait",
+               "Seconds": 4,
+               "Next": "WSCommsState2"
+            },
+            "WSCommsState2": {
+              "Type": "Task",
+              "Resource":"arn:aws:lambda:eu-west-1:094312144437:function:wscomm-quk-lambda",
+              "End": true
+            }
+          }
+        },
+         {
+          "StartAt": "Public Health",
+          "States": {
+            "Public Health": {
+               "Type": "Wait",
+               "Seconds": 3,
+               "Next": "WSCommsState3"
+            },
+             "WSCommsState3": {
+              "Type": "Task",
+              "Resource":"arn:aws:lambda:eu-west-1:094312144437:function:wscomm-quk-lambda",
+              "End": true
+            }
+          }
+        }
+      ]
+    },
+    "CommsChannel": {
+      "Type": "Pass",
+      "End": true
+    }
+  }
+}

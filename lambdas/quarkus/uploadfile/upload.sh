@@ -3,4 +3,5 @@ aws s3 cp ./target/function.zip s3://aminasif-code/lambda/CDWSPUploadFileLambda.
 
 
 # AWS CLI TO publish the function zip  from s3 bucket to lambda
-aws lambda update-function-code --function-name CDWSPUploadFileLambda --s3-bucket aminasif-code --s3-key lambda/CDWSPUploadFileLambda.zip --publish
+aws lambda update-function-code --function-name CDWSPUploadFileLambda \
+ --s3-bucket aminasif-code --s3-key lambda/CDWSPUploadFileLambda.zip --publish

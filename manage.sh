@@ -26,7 +26,7 @@ case $choice in
         echo "Executing Command 3"
         # Add the command 3 here
         
-        aws s3 sync /Users/aminasif/amroot/work/code-projects/AB3/amin.guru/ s3://amin.guru --exclude "._*" --exclude "*/._*" --exclude ".DS_Store" --exclude "*/.DS_Store"
+        aws s3 sync /Users/aminasif/amroot/work/code-projects/clouddemo/amin.guru/ s3://amin.guru --exclude "._*" --exclude "*/._*" --exclude ".DS_Store" --exclude "*/.DS_Store"
         ;;
     4)
         echo "Quitting..."

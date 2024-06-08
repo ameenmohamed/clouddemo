@@ -2,18 +2,16 @@ package org.hac.codewsp.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import java.util.Base64;
-
 
 import org.apache.commons.fileupload.MultipartStream;
 import org.hac.codewsp.awsutil.HACAWSUtil;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.FileInputStream;
 
 
 public class HacFileUtil{
@@ -173,7 +171,7 @@ public static int getMax(int[] array) {
     }
 
     public static String handleMultiPart(ByteArrayInputStream content,String path, byte[] boundary){
-        StringBuffer fileNames  = new StringBuffer("");
+        StringBuilder fileNames  = new StringBuilder("");
         
         @SuppressWarnings("deprecation")
         MultipartStream multipartStream = new MultipartStream(content, boundary);
@@ -185,7 +183,7 @@ public static int getMax(int[] array) {
             String header = multipartStream.readHeaders();
             String fileName = HacFileUtil.extractFileName(header);
             System.out.println("FileName:"+fileName);
-            File file = null;
+            File file;
             if(HACAWSUtil.isEnvLive()){
                 file = new File(tempLoc + "/" + fileName);
             }

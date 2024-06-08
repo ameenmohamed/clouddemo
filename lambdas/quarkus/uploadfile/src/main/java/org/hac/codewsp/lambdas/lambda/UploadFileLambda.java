@@ -2,10 +2,8 @@ package org.hac.codewsp.lambdas.lambda;
 
 
 import java.io.BufferedWriter;
-
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -15,24 +13,23 @@ import org.hac.codewsp.awsutil.HACAWSUtil;
 import org.hac.codewsp.model.UPFileResponse;
 import org.hac.codewsp.util.HacFileUtil;
 
-
 import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
 public class UploadFileLambda implements RequestStreamHandler {
 
-    final String tempLoc = "/tmp/";
-    final static String FILENAMEKEY= "filename";
+   // final String tempLoc = "/tmp/";
+   // final static String FILENAMEKEY= "filename";
     final static String MULTIPARTCONTENT= "multipart/form-data";
 
     @Override
     public void handleRequest(InputStream input, OutputStream output, Context context) throws IOException {
         LambdaLogger logger = context.getLogger();
         PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(output, Charset.forName("US-ASCII"))));
-        String mpartBoundary = null;
+        String mpartBoundary ;
         ObjectMapper mapper = new ObjectMapper();
      
         
@@ -67,7 +64,7 @@ public class UploadFileLambda implements RequestStreamHandler {
             System.out.println("rawnoboundary ....");
             mpartBoundary = "rawnoboundary";
             //create uniquefilename string 
-            String uniqueFileName = HacFileUtil.createUniqueFileName();
+          //  String uniqueFileName = HacFileUtil.createUniqueFileName();
             //write file to s3 bucket
             fileName = HacFileUtil.writeS3File(reqBody, HACAWSUtil.S3BUCKET_LOC, mpartBoundary.getBytes());
         }else{
@@ -81,12 +78,11 @@ public class UploadFileLambda implements RequestStreamHandler {
         
         String resp = mapper.writeValueAsString(new UPFileResponse(fileName));
         logger.log("returining resp:"+resp);
-        try {
+        try (input) {
              writer.println(resp);   
         }catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
           } finally {
-            input.close();     
             writer.close();
            
           }

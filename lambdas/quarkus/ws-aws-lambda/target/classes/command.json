@@ -1,0 +1,24 @@
+{
+    "requestContext": {
+        "stage": "production",
+        "requestId": "FmCwKECEDoEFmkA=",
+        "identity": {
+            "sourceIp": "54.240.197.232",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+        },
+        "apiId": "98hoolg0n7",
+        "connectedAt": 1685211948146,
+        "connectionId": "FmCu8ctojoECE6A=",
+        "domainName": "98hoolg0n7.execute-api.eu-west-1.amazonaws.com",
+        "eventType": "MESSAGE",
+        "extendedRequestId": "FmCwKECEDoEFmkA=",
+        "messageDirection": "IN",
+        "messageId": "FmCwKcvUDoECE6A=",
+        "requestTime": "27/May/2023:18:25:55 +0000",
+        "requestTimeEpoch": 1685211955915,
+        "routeKey": "message"
+    },
+    "body": "{\"action\":\"message\",\"command\":\"getconnectionId\"}",
+    "isBase64Encoded": false
+}
+responseSTR: {"connectionId":"FmCu8ctojoECE6A\u003d","data":{"reponse":"200","command":"getconnectionId"}}

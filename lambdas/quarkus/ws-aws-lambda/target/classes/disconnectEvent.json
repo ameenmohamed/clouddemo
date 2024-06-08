@@ -1,0 +1,41 @@
+{
+    "headers": {
+        "Host": "98hoolg0n7.execute-api.eu-west-1.amazonaws.com",
+        "x-api-key": "",
+        "X-Forwarded-For": "",
+        "x-restapi": ""
+    },
+    "multiValueHeaders": {
+        "Host": [
+            "98hoolg0n7.execute-api.eu-west-1.amazonaws.com"
+        ],
+        "x-api-key": [
+            ""
+        ],
+        "X-Forwarded-For": [
+            ""
+        ],
+        "x-restapi": [
+            ""
+        ]
+    },
+    "requestContext": {
+        "stage": "production",
+        "requestId": "FmCu7EKKjoEFpFg=",
+        "identity": {
+            "sourceIp": "54.240.197.232",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.42"
+        },
+        "apiId": "98hoolg0n7",
+        "connectedAt": 1685211773580,
+        "connectionId": "FmCTqfwnjoECHHg=",
+        "domainName": "98hoolg0n7.execute-api.eu-west-1.amazonaws.com",
+        "eventType": "DISCONNECT",
+        "extendedRequestId": "FmCu7EKKjoEFpFg=",
+        "messageDirection": "IN",
+        "requestTime": "27/May/2023:18:25:48 +0000",
+        "requestTimeEpoch": 1685211948018,
+        "routeKey": "$disconnect"
+    },
+    "isBase64Encoded": false
+}

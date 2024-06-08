@@ -1,4 +1,4 @@
-package restapi.coreapi;
+package guru.amin.dataapi.coreapi;
 
 import org.springframework.stereotype.Component;
 
@@ -8,7 +8,8 @@ public class WelcomeMessage {
     private String message;
 
 
-    public WelcomeMessage(String message) {
-        this.message = message;
+    public String getWelcomeMessage(String message) {
+
+        return this.message = message;
     }
 }

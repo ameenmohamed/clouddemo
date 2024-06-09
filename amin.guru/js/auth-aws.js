@@ -10,6 +10,8 @@ const authurl = "https://anycompanyflight.auth.eu-west-1.amazoncognito.com/login
 document.addEventListener('DOMContentLoaded', () => {
     // Function to parse the URL hash to get the access token
     function parseHash(hash) {
+        localStorage.clear();
+        sessionStorage.clear();
         let params = {};
         hash.substring(1).split('&').forEach(param => {
             let [key, value] = param.split('=');
@@ -17,6 +19,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         return params;
     }
+
+     // Function to decode a base64-encoded JWT token
+     function decodeJWT(token) {
+        const payload = token.split('.')[1];
+        return JSON.parse(atob(payload));
+    }
+
+    // Function to store extracted claims in local storage
+    function storeClaimsInLocalStorage(claims) {
+        localStorage.setItem('cognito.groups', JSON.stringify(claims['cognito:groups']));
+        localStorage.setItem('cognito.roles', claims['cognito:roles']);
+        localStorage.setItem('cognito.username', claims['cognito:username']);
+        localStorage.setItem('preferred_username', claims['preferred_username']);
+        localStorage.setItem('event_id', claims['event_id']);
+        localStorage.setItem('email', claims['email']);
+        //localStorage.setItem('jwttoken', claims.rawToken);
+        const cookieOptions = {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'strict'
+          };
+          document.cookie = `jwttoken=${claims.access_token}; ${Object.entries(cookieOptions).map(([key, value]) => `${key}=${value}`).join('; ')}`;
+    }
+
 
     // Function to display the authentication status
     function displayAuthStatus() {
@@ -26,12 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (params.access_token) {
             console.log('Authentication successful! Access Token:',params.access_token);
-            authStatusDiv.innerHTML = `<p>Authentication successful! Access Token: ${params.access_token}</p>`;
+            const claims = decodeJWT(params.id_token);
+            claims.access_token = params.access_token; // Add the raw token to the claims object
+            storeClaimsInLocalStorage(claims);
             // Optionally, you can add more actions here, like storing the tokens in localStorage
             // localStorage.setItem('access_token', params.access_token);
         } else {
-            // Redirect to index.html if token is not present
-            window.location.href = 'index.html';
+            if (!localStorage.getItem('cognito.username')) {
+                window.location.replace('https://amin.guru');
+            }
         }
     }
 
@@ -39,9 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.hash) {
         displayAuthStatus();
     } else {
-        // Redirect to index.html if no hash is present
         console.log('no hash');
-        window.location.href = 'index.html';
+        // Redirect to https://amin.guru if cognito.username is not present in localStorage
+        if (!localStorage.getItem('cognito.username')) {
+            console.log('no localsession');
+            window.location.replace('https://amin.guru');
+        }
     }
 });
 

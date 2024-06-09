@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return JSON.parse(atob(payload));
     }
 
-    // Function to store extracted claims in local storage
+    // Function to store extracted claims from idtoken in local storage
     function storeClaimsInLocalStorage(claims) {
         localStorage.setItem('cognito.groups', JSON.stringify(claims['cognito:groups']));
         localStorage.setItem('cognito.roles', claims['cognito:roles']);

@@ -1,0 +1,51 @@
+https://amin.guru/wsaws.html
+#id_token=eyJraWQiOiJ6c3pFRlVZTGxaVXg4Z0xWdUhXb2RLZTREVzdCT3p4ZWIyTkhcL05UVlwvUWs9IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9oYXNoIjoiTzBpNy1taFh4WFRRYXFrYlZaYk5idyIsInN1YiI6ImJkODJkM2M0LTNhYzAtNGJmOS05NjMxLWYyZTQzMDE0MzJiMSIsImNvZ25pdG86Z3JvdXBzIjpbImJ1c2luZXNzIl0sImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJjb2duaXRvOnByZWZlcnJlZF9yb2xlIjoiYXJuOmF3czppYW06OjA5NDMxMjE0NDQzNzpyb2xlXC9ST0xFLVdFQkZFRC1Db2duaXRvIiwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmV1LXdlc3QtMS5hbWF6b25hd3MuY29tXC9ldS13ZXN0LTFfa0NxTkdLdTBCIiwicGhvbmVfbnVtYmVyX3ZlcmlmaWVkIjpmYWxzZSwiY29nbml0bzp1c2VybmFtZSI6ImFtaW4iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJBbWluIiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6MDk0MzEyMTQ0NDM3OnJvbGVcL1JPTEUtV0VCRkVELUNvZ25pdG8iXSwiYXVkIjoiNW03djduM2ltcjRpNGhuMXMwcnJodTR2OGIiLCJldmVudF9pZCI6Ijg2YjEzNTE0LWUxYTQtNGE4NC1iZTEyLTlmMDIwOWIzYmU4MSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzE3OTE2OTYwLCJwaG9uZV9udW1iZXIiOiIrMzUzODY4MDcyNTE0IiwiZXhwIjoxNzE3OTIwNTYwLCJpYXQiOjE3MTc5MTY5NjAsImp0aSI6ImZlOWFlMGQxLWZjN2ItNDU1MC05YWViLWU3MzQ1NWNlN2FkZiIsImVtYWlsIjoiYW1pbmFzaWZAYW1hem9uLmNvbSJ9.a1qLvXTpwMkp0y9loiCxjKrDev5GFsKYP9KaSjmNHdvl_0DyWTarIwFCbMHlaU5V6o0YKwMqf8pejfBQXZGdDzXQjM-XFC_MTUJlXqW6Lzu7leByeg0Z73RXJ60p3rRXy-y1yRJWeE_vOXaocTVP-T0HqVJTZAE1f8P-Ko1KAcqPa48m4GuZeCXp__Yg5KiaID2N9PkE0g76CcWROGFJ4w52q1lzCFlfaNtzsiBDTdvh_SQDH2GWHhV1YhrQZuxAVfCP5gSGKeJ3X7GeSCLqme5k0GG1TkuECwMKOEwcdCIvBQ6aWfLKq6i9vduzjM8F3Xdh70OSpJfmsh2F9onSuw
+{
+  "at_hash": "O0i7-mhXxXTQaqkbVZbNbw",
+  "sub": "bd82d3c4-3ac0-4bf9-9631-f2e4301432b1",
+  "cognito:groups": [
+    "business"
+  ],
+  "email_verified": true,
+  "cognito:preferred_role": "arn:aws:iam::094312144437:role/ROLE-WEBFED-Cognito",
+  "iss": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_kCqNGKu0B",
+  "phone_number_verified": false,
+  "cognito:username": "amin",
+  "preferred_username": "Amin",
+  "cognito:roles": [
+    "arn:aws:iam::094312144437:role/ROLE-WEBFED-Cognito"
+  ],
+  "aud": "5m7v7n3imr4i4hn1s0rrhu4v8b",
+  "event_id": "86b13514-e1a4-4a84-be12-9f0209b3be81",
+  "token_use": "id",
+  "auth_time": 1717916960,
+  "phone_number": "+353868072514",
+  "exp": 1717920560,
+  "iat": 1717916960,
+  "jti": "fe9ae0d1-fc7b-4550-9aeb-e73455ce7adf",
+  "email": "aminasif@amazon.com"
+}
+
+&
+access_token=eyJraWQiOiJabDlWenhOZ0h5YmF2dStmYWZGd2NtN3FKaG13WUdCa0VQNEhLVXFOQWRBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJiZDgyZDNjNC0zYWMwLTRiZjktOTYzMS1mMmU0MzAxNDMyYjEiLCJjb2duaXRvOmdyb3VwcyI6WyJidXNpbmVzcyJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtd2VzdC0xLmFtYXpvbmF3cy5jb21cL2V1LXdlc3QtMV9rQ3FOR0t1MEIiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI1bTd2N24zaW1yNGk0aG4xczBycmh1NHY4YiIsImV2ZW50X2lkIjoiODZiMTM1MTQtZTFhNC00YTg0LWJlMTItOWYwMjA5YjNiZTgxIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiBwaG9uZSBvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImF1dGhfdGltZSI6MTcxNzkxNjk2MCwiZXhwIjoxNzE3OTIwNTYwLCJpYXQiOjE3MTc5MTY5NjAsImp0aSI6ImJlNGViNDc2LTg5NTctNDM3MC04NjI4LTc0MTRmYTUzMzk5NSIsInVzZXJuYW1lIjoiYW1pbiJ9.kUMcI9Hif8mQd2Sz7W4FIjFjTp9qGiXHXJ17ee7tAeSFnXHRFmxVUBn3HUn04oe61bs6i68MFfWV3UZaIePMPZxGTDablaCo6961j36CV3Pjb4iiIJBtPnEqoa8_67LyaevQWj_4fQvoF4RJIm8ZzjJCNJrMiFoseTzGQlF_lP3qCFJHaYhEIBSrqVS3dvp2f2XreSyAuizEuMJXLyMzt2pCFackkyQuce1T7vhh65l1hGziQf3smFUm5QTmeMkl-nn2FPNgPdm7d3QxoLWjNchqrFzK7bi0tAuO7-dUhxyvTF8jglrMz3BCjeigiPfET0osy4wv8izPDs5aUBu-jg
+
+{
+  "sub": "bd82d3c4-3ac0-4bf9-9631-f2e4301432b1",
+  "cognito:groups": [
+    "business"
+  ],
+  "iss": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_kCqNGKu0B",
+  "version": 2,
+  "client_id": "5m7v7n3imr4i4hn1s0rrhu4v8b",
+  "event_id": "86b13514-e1a4-4a84-be12-9f0209b3be81",
+  "token_use": "access",
+  "scope": "aws.cognito.signin.user.admin phone openid profile email",
+  "auth_time": 1717916960,
+  "exp": 1717920560,
+  "iat": 1717916960,
+  "jti": "be4eb476-8957-4370-8628-7414fa533995",
+  "username": "amin"
+}
+
+
+&expires_in=3600&token_type=Bearer
